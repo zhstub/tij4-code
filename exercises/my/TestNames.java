@@ -71,11 +71,32 @@ public final class TestNames {
 }
 
 enum SomeEnum {
-    BLUE, YELLOW, RED;
+    BLUE, YELLOW, RED
 }
 
 @interface SomeAnnotation {}
 
+/* Output:
+true
+SimpleName       CanonicalName  	  Name              	  toString
+void             void           	  void              	  void
+int              int            	  int               	  int
+String           java.lang.String	  java.lang.String  	  class java.lang.String
+Runnable         java.lang.Runnable	  java.lang.Runnable	  interface java.lang.Runnable
+SomeEnum         my.SomeEnum    	  my.SomeEnum       	  class my.SomeEnum
+SomeAnnotation   my.SomeAnnotation	  my.SomeAnnotation 	  interface my.SomeAnnotation
+boolean[]        boolean[]      	  [Z                	  class [Z
+int[]            int[]          	  [I                	  class [I
+String[]         java.lang.String[]	  [Ljava.lang.String;	  class [Ljava.lang.String;
+NestedClass      my.TestNames.NestedClass	  my.TestNames$NestedClass	  class my.TestNames$NestedClass
+InnerClass       my.TestNames.InnerClass	  my.TestNames$InnerClass	  class my.TestNames$InnerClass
+LocalClass       null           	  my.TestNames$1LocalClass	  class my.TestNames$1LocalClass
+LocalClass[]     null           	  [Lmy.TestNames$1LocalClass;	  class [Lmy.TestNames$1LocalClass;
+                 null           	  my.TestNames$1    	  class my.TestNames$1
+[]               null           	  [Lmy.TestNames$2; 	  class [Lmy.TestNames$2;
+TestNames$$Lambda$1/1791741888  my.TestNames$$Lambda$1/1791741888	  my.TestNames$$Lambda$1/1791741888	  class my.TestNames$$Lambda$1/1791741888
+TestNames$$Lambda$1/1791741888[]  my.TestNames$$Lambda$1/1791741888[]	  [Lmy.TestNames$$Lambda$1;	  class [Lmy.TestNames$$Lambda$1;
+ */
 
 /*
 So, here are the rules. First, lets start with primitive types and void:
